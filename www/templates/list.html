@@ -1,0 +1,24 @@
+<!-- header -->
+<ion-header-bar class="bar bar-header bar-calm">
+	<h1 class="title">Drivers Championship Standings</h1>
+</ion-header-bar>
+
+<!-- contenidor principal del contingut -->
+<ion-content ng-controller="carregaLlista">	
+	<!-- llista -->
+	<ion-list>
+	  <!-- items de la llista, ordenats pel que definim al controlador -->	
+	  <ion-item ng-repeat="pilot in llistaPilots | orderBy:orderProp">
+	    <!-- row-center centra el contingut verticalment -->
+	  	<div class="row row-center">
+	  		<!-- variable index de ng-repeat -->
+		    <div class="col col-10"><img class="icona" src="img/{{pilot.Driver.nationality}}.png" /></div>
+	  		<div class="col">{{pilot.Driver.givenName}} &nbsp; {{pilot.Driver.familyName}}</div>
+	 		<div class="col col-20">{{pilot.Constructors[0].name}}</div>
+	 		<div class="col col-10">{{pilot.points}}</div>
+ 		</div>
+	  </ion-item>
+	</ion-list>
+
+
+</ion-content>
